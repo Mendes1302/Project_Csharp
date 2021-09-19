@@ -1,0 +1,93 @@
+@{
+    ViewData["Title"] = "Let's Go";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Aprender a codar</p>
+
+
+<form id="tblFruits">
+    
+    Azul: <input type="checkbox" id = 'answer_1' value = '1' onclick = "Disabled_another()"> <br/>
+    Amarelo: <input type="checkbox" id = 'answer_2' value = '2' onclick = "Disabled_another()"> <br/>
+    Vermelho: <input type="checkbox" id = 'answer_3' value = '3' onclick = "Disabled_another()">
+</form>
+
+<button onclick="send_response()">Click me</button>
+
+<p id="demo"></p>
+
+<script>
+    //setInterval(Disabled_another(), 3000);
+    function Disabled_another()
+    {
+
+        if (document.getElementById("answer_1").value == "1")
+        {
+            if (document.getElementById("answer_1").checked == true)
+            {
+                console.log("1: " + document.getElementById("answer_1").value + "  "+document.getElementById("answer_1").checked);
+                document.getElementById("answer_3").disabled = true; 
+                document.getElementById("answer_2").disabled = true;
+            }
+            else if (document.getElementById("answer_1").checked == false)
+            {
+                document.getElementById("answer_2").disabled = "";
+                document.getElementById("answer_3").disabled = "";
+            }
+            
+        }
+        if (document.getElementById("answer_2").value == "2")
+        {
+            if (document.getElementById("answer_2").checked == true)
+            {
+                console.log("1: " + document.getElementById("answer_2").value + "  "+document.getElementById("answer_2").checked);
+                document.getElementById("answer_3").disabled = true; 
+                document.getElementById("answer_1").disabled = true;
+            }
+            else if (document.getElementById("answer_2").checked == false)
+            {
+                document.getElementById("answer_1").disabled = "";
+                document.getElementById("answer_3").disabled = "";
+            }
+            
+        }
+        if (document.getElementById("answer_3").value == "3")
+        {
+            if (document.getElementById("answer_3").checked == true)
+            {
+                console.log("1: " + document.getElementById("answer_3").value + "  "+document.getElementById("answer_3").checked);
+                document.getElementById("answer_1").disabled = true; 
+                document.getElementById("answer_2").disabled = true;
+            }
+            else if (document.getElementById("answer_3").checked == false)
+            {
+                document.getElementById("answer_1").disabled = "";
+                document.getElementById("answer_2").disabled = "";
+            }
+            
+        }
+        
+    }
+
+    function send_response(){
+        
+        var answer_1 = document.getElementById("answer_1");
+        var answer_2 = document.getElementById("answer_2");
+        var answer_3 = document.getElementById("answer_3");
+        if (answer_1.checked == true)
+        {
+            window.alert(answer_1.value);
+        }
+        if (answer_2.checked == true)
+        {
+            window.alert(answer_2.value);
+        }
+        if (answer_3.checked == true)
+        {
+            window.alert(answer_3.value);
+        }
+        
+        
+    }
+</script>
