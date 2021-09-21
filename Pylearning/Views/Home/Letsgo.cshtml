@@ -3,14 +3,43 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Aprender a codar</p>
+<p>What is Python?
+Python is a popular programming language. It was created by Guido van Rossum, and released in 1991.
 
+It is used for:
+
+web development (server-side),
+software development,
+mathematics,
+system scripting.
+What can Python do?
+Python can be used on a server to create web applications.
+Python can be used alongside software to create workflows.
+Python can connect to database systems. It can also read and modify files.
+Python can be used to handle big data and perform complex mathematics.
+Python can be used for rapid prototyping, or for production-ready software development.
+Why Python?
+Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
+Python has a simple syntax similar to the English language.
+Python has syntax that allows developers to write programs with fewer lines than some other programming languages.
+Python runs on an interpreter system, meaning that code can be executed as soon as it is written. This means that prototyping can be very quick.
+Python can be treated in a procedural way, an object-oriented way or a functional way.
+Good to know
+The most recent major version of Python is Python 3, which we shall be using in this tutorial. However, Python 2, although not being updated with anything other than security updates, is still quite popular.
+In this tutorial Python will be written in a text editor. It is possible to write Python in an Integrated Development Environment, such as Thonny, Pycharm, Netbeans or Eclipse which are particularly useful when managing larger collections of Python files.
+Python Syntax compared to other programming languages
+Python was designed for readability, and has some similarities to the English language with influence from mathematics.
+Python uses new lines to complete a command, as opposed to other programming languages which often use semicolons or parentheses.
+Python relies on indentation, using whitespace, to define scope; such as the scope of loops, functions and classes. Other programming languages often use curly-brackets for this purpose.</p>
+
+<h4>O que faz o print() no Python?</h4>
 
 <form id="tblFruits">
     
-    Azul: <input type="checkbox" id = 'answer_1' value = '1' onclick = "Disabled_another()"> <br/>
-    Amarelo: <input type="checkbox" id = 'answer_2' value = '2' onclick = "Disabled_another()"> <br/>
-    Vermelho: <input type="checkbox" id = 'answer_3' value = '3' onclick = "Disabled_another()">
+    <input type="checkbox" id = 'answer_1' value = '1' onclick = "Disabled_answer1()"> A) Recebe um valor. <br/>
+    <input type="checkbox" id = 'answer_2' value = '2' onclick = "Disabled_answer2()"> B) Mostra algo na tela.<br/>
+    <input type="checkbox" id = 'answer_3' value = '3' onclick = "Disabled_answer3()"> C) Muda a cor. <br/>
+    <input type="checkbox" id = 'answer_4' value = '4' onclick = "Disabled_answer4()"> D) Nada. <br/>
 </form>
 
 <button onclick="send_response()">Click me</button>
@@ -18,76 +47,91 @@
 <p id="demo"></p>
 
 <script>
-    //setInterval(Disabled_another(), 3000);
-    function Disabled_another()
+    function Disabled_answer1()
     {
-
-        if (document.getElementById("answer_1").value == "1")
+        if ((document.getElementById("answer_1").checked == true) && (document.getElementById("answer_4").checked == false) && (document.getElementById("answer_2").checked == false) && (document.getElementById("answer_3").checked == false))
         {
-            if (document.getElementById("answer_1").checked == true)
-            {
-                console.log("1: " + document.getElementById("answer_1").value + "  "+document.getElementById("answer_1").checked);
-                document.getElementById("answer_3").disabled = true; 
-                document.getElementById("answer_2").disabled = true;
-            }
-            else if (document.getElementById("answer_1").checked == false)
-            {
-                document.getElementById("answer_2").disabled = "";
-                document.getElementById("answer_3").disabled = "";
-            }
-            
+            document.getElementById("answer_3").disabled = true; 
+            document.getElementById("answer_2").disabled = true;
+            document.getElementById("answer_4").disabled = true;
         }
-        if (document.getElementById("answer_2").value == "2")
+        else
         {
-            if (document.getElementById("answer_2").checked == true)
-            {
-                console.log("1: " + document.getElementById("answer_2").value + "  "+document.getElementById("answer_2").checked);
-                document.getElementById("answer_3").disabled = true; 
-                document.getElementById("answer_1").disabled = true;
-            }
-            else if (document.getElementById("answer_2").checked == false)
-            {
-                document.getElementById("answer_1").disabled = "";
-                document.getElementById("answer_3").disabled = "";
-            }
-            
-        }
-        if (document.getElementById("answer_3").value == "3")
-        {
-            if (document.getElementById("answer_3").checked == true)
-            {
-                console.log("1: " + document.getElementById("answer_3").value + "  "+document.getElementById("answer_3").checked);
-                document.getElementById("answer_1").disabled = true; 
-                document.getElementById("answer_2").disabled = true;
-            }
-            else if (document.getElementById("answer_3").checked == false)
-            {
-                document.getElementById("answer_1").disabled = "";
-                document.getElementById("answer_2").disabled = "";
-            }
-            
+            document.getElementById("answer_2").disabled = false;
+            document.getElementById("answer_3").disabled = false;
+            document.getElementById("answer_4").disabled = false;
         }
         
     }
 
-    function send_response(){
+    function Disabled_answer2()
+    {
+        if ((document.getElementById("answer_2").checked == true) && (document.getElementById("answer_4").checked == false) && (document.getElementById("answer_1").checked == false) && (document.getElementById("answer_3").checked == false))
+        {
+            document.getElementById("answer_3").disabled = true; 
+            document.getElementById("answer_1").disabled = true;
+            document.getElementById("answer_4").disabled = true;
+        }
+        else
+        {
+            document.getElementById("answer_1").disabled = false;
+            document.getElementById("answer_3").disabled = false;
+            document.getElementById("answer_4").disabled = false;
+        }
+    }
+    function Disabled_answer3()
+    {
+        if ((document.getElementById("answer_3").checked == true) && (document.getElementById("answer_4").checked == false) && (document.getElementById("answer_1").checked == false) && (document.getElementById("answer_2").checked == false))
+        {
+            document.getElementById("answer_2").disabled = true; 
+            document.getElementById("answer_1").disabled = true;
+            document.getElementById("answer_4").disabled = true;
+        }
+        else
+        {
+            document.getElementById("answer_4").disabled = false;
+            document.getElementById("answer_1").disabled = false;
+            document.getElementById("answer_2").disabled = false;
+        }
+    }
+    function Disabled_answer4()
+    {
+        if ((document.getElementById("answer_3").checked == false) && (document.getElementById("answer_4").checked == true) && (document.getElementById("answer_1").checked == false) && (document.getElementById("answer_2").checked == false))
+        {
+            document.getElementById("answer_2").disabled = true; 
+            document.getElementById("answer_1").disabled = true;
+            document.getElementById("answer_3").disabled = true;
+        }
+        else
+        {
+            document.getElementById("answer_4").disabled = false;
+            document.getElementById("answer_1").disabled = false;
+            document.getElementById("answer_3").disabled = false;
+        }
+    }
+
+    function send_response()
+    {
         
         var answer_1 = document.getElementById("answer_1");
         var answer_2 = document.getElementById("answer_2");
         var answer_3 = document.getElementById("answer_3");
+        var answer_4 = document.getElementById("answer_4");
         if (answer_1.checked == true)
         {
             window.alert(answer_1.value);
         }
-        if (answer_2.checked == true)
+        else if (answer_2.checked == true)
         {
             window.alert(answer_2.value);
         }
-        if (answer_3.checked == true)
+        else if (answer_3.checked == true)
         {
             window.alert(answer_3.value);
         }
-        
-        
+        else
+        {
+            window.alert(answer_4.value);
+        }
     }
 </script>
